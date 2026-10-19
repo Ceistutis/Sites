@@ -1,0 +1,10 @@
+node_modules
+.agents
+.playwright
+.playwright-cli
+.taste-skill
+artifacts
+test-results
+tests
+design/references
+skills-lock.json
