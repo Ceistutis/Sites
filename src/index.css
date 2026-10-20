@@ -123,6 +123,7 @@ textarea:focus-visible,
   border-width: 0;
 }
 .skip-link {
+  clip-path: inset(50%);
   position: fixed;
   top: 8px;
   left: 8px;
@@ -133,6 +134,7 @@ textarea:focus-visible,
   z-index: 100;
 }
 .skip-link:focus {
+  clip-path: none;
   transform: none;
 }
 section[id] {

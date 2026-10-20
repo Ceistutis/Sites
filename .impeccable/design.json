@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-19T23:58:39.098Z",
+  "title": "Design System: Lume Arquitetura",
+  "extensions": {
+    "shadows": [
+      {
+        "name": "sp-mobile-menu",
+        "value": "0 14px 28px #0c170e33",
+        "purpose": "Sobreposição real do menu móvel."
+      }
+    ],
+    "motion": [
+      {
+        "name": "sp-entry",
+        "value": "0.85s power3.out",
+        "purpose": "Texto em top 92%, once."
+      },
+      {
+        "name": "sp-carousel",
+        "value": "0.7s desktop / 0.45s mobile, power3.out, overwrite",
+        "purpose": "Seleção de projeto; zero inicialmente ou com reduce."
+      },
+      {
+        "name": "sp-material",
+        "value": "0.55s power3.out",
+        "purpose": "Mudança da imagem, com movimento permitido."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile-max",
+        "value": "700px"
+      },
+      {
+        "name": "tablet-max",
+        "value": "1000px"
+      },
+      {
+        "name": "wide-min",
+        "value": "1921px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Ação compartilhada",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Extraído do componente implementado; interação de aplicação permanece no React.",
+      "html": "<button class=\"ds-button\">Explorar experiência</button>",
+      "css": ".ds-button{background:var(--ink,#223a30);color:var(--paper,#fafaf6);min-height:54px;padding:16px 24px;border:0;border-radius:0;font:16px 'DM Sans',sans-serif;transition:transform .2s,background .2s}.ds-button:hover{background:var(--accent,#314e3e);transform:translateY(-2px)}.ds-button:active{transform:translateY(1px)}.ds-button:focus-visible{outline:3px solid #a36e16;outline-offset:5px}@media(prefers-reduced-motion:reduce){button,a,input{transition:none}button:hover,button:active{transform:none}}"
+    },
+    {
+      "name": "Ação Super Premium",
+      "kind": "button",
+      "refersTo": "sp-button-primary",
+      "description": "Extraído do componente implementado; interação de aplicação permanece no React.",
+      "html": "<button class=\"ds-sp-button\">Experimentar a conversa</button>",
+      "css": ".ds-sp-button{background:#202c25;color:#eeeae2;min-height:56px;padding:17px 24px;border:1px solid #202c25;border-radius:0;font:16px 'DM Sans',sans-serif;transition:background .2s,color .2s}.ds-sp-button:hover{background:#3d5143}.ds-sp-button:active{background:#111e17}.ds-sp-button:focus-visible{outline:3px solid #b58430;outline-offset:6px}@media(prefers-reduced-motion:reduce){button,a,input{transition:none}button:hover,button:active{transform:none}}"
+    },
+    {
+      "name": "Ação clara do hero",
+      "kind": "button",
+      "description": "Extraído do componente implementado; interação de aplicação permanece no React.",
+      "html": "<button class=\"ds-light\">Explorar projetos</button>",
+      "css": ".ds-light{background:#18231c80;color:#fff9f0;min-height:56px;padding:17px 24px;border:1px solid #fff9f0;border-radius:0;font:16px 'DM Sans',sans-serif;transition:background .2s,color .2s}.ds-light:hover{background:#eeeae2;color:#202c25}.ds-light:active{background:#111e17}.ds-light:focus-visible{outline:3px solid #e1c382;outline-offset:6px}@media(prefers-reduced-motion:reduce){button,a,input{transition:none}button:hover,button:active{transform:none}}"
+    },
+    {
+      "name": "Campo Super Premium",
+      "kind": "input",
+      "refersTo": "sp-input",
+      "description": "Extraído do componente implementado; interação de aplicação permanece no React.",
+      "html": "<label class=\"ds-label\" for=\"ds-name\">Seu nome</label><input class=\"ds-input\" id=\"ds-name\" required autocomplete=\"name\"/>",
+      "css": ".ds-label{display:block;margin-bottom:10px;font:15px 'DM Sans',sans-serif;color:#202c25}.ds-input{width:100%;min-height:48px;padding:12px;background:#f6f3ed;color:#202c25;border:1px solid #a4a99e;border-radius:0;font:16px 'DM Sans',sans-serif}.ds-input:focus-visible{outline:3px solid #b58430;outline-offset:6px}.ds-input[aria-invalid=true]{border-color:#913c2c}@media(prefers-reduced-motion:reduce){button,a,input{transition:none}button:hover,button:active{transform:none}}"
+    },
+    {
+      "name": "Seleção de materiais",
+      "kind": "custom",
+      "description": "Extraído do componente implementado; interação de aplicação permanece no React.",
+      "html": "<div class=\"ds-material\" role=\"group\" aria-label=\"Explorar materiais\"><button aria-pressed=\"false\">Concreto</button><button aria-pressed=\"false\">Madeira</button><button aria-pressed=\"true\">Pedra</button><button aria-pressed=\"false\">Luz e vidro</button></div>",
+      "css": ".ds-material{display:flex;flex-wrap:wrap;gap:6px 24px}.ds-material button{background:transparent;padding:12px 0;min-height:48px;color:#536056;border:0;border-bottom:2px solid transparent;font:16px 'DM Sans',sans-serif}.ds-material button[aria-pressed=true],.ds-material button:hover{color:#202c25;border-bottom-color:currentColor}.ds-material button:focus-visible{outline:3px solid #b58430;outline-offset:6px}@media(prefers-reduced-motion:reduce){button,a,input{transition:none}button:hover,button:active{transform:none}}"
+    },
+    {
+      "name": "Navegação editorial",
+      "kind": "nav",
+      "description": "Extraído do componente implementado; interação de aplicação permanece no React.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Navegação Super Premium\"><a href=\"#estudio\">Estúdio</a><a href=\"#projetos\">Projetos</a><a href=\"#processo\">Processo</a></nav>",
+      "css": ".ds-nav{display:flex;gap:24px;background:#202723;padding:18px 24px}.ds-nav a{display:inline-flex;align-items:center;min-height:48px;color:#eeeae2;font:15px 'DM Sans',sans-serif;text-decoration:none}.ds-nav a:hover{text-decoration:underline;text-underline-offset:7px}.ds-nav a:focus-visible{outline:3px solid #e1c382;outline-offset:6px}@media(prefers-reduced-motion:reduce){button,a,input{transition:none}button:hover,button:active{transform:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A luz como fio narrativo",
+    "overview": "Lume é uma marca fictícia. A luz liga aberturas, materiais naturais e espaços para o cotidiano. O tom permanece calmo, preciso e acolhedor nas três experiências. Básica prioriza leitura direta; Premium aumenta escala, variedade de composição e profundidade de interação; Super Premium acrescenta planos fotográficos, capítulos editoriais e galeria espacial em `/super-premium`.\n\nEsta é uma extensão explícita do sistema existente: os tokens sem prefixo e as decisões da Básica/Premium continuam vigentes. A família `sp-` pertence somente à nova rota e não redefine as páginas anteriores. Identidade, serviços e honestidade do conteúdo permanecem compartilhados; a Super Premium acrescenta a Casa Horizonte às imagens conceituais existentes.",
+    "keyCharacteristics": [
+      "Luz, fotografia e espaço vazio organizam a narrativa.",
+      "Manrope e DM Sans mantêm a identidade entre os três níveis.",
+      "Superfícies minerais e verdes profundos sustentam imagens de cantos retos.",
+      "Conteúdo conceitual identificado e interações locais acessíveis."
+    ],
+    "dos": [
+      "Do preservar as regras da Básica/Premium e manter tokens Super Premium no escopo da nova rota.",
+      "Do identificar estudos conceituais e a origem gerada por IA das imagens.",
+      "Do manter conteúdo legível em repouso, foco visível e equivalentes de teclado/toque.",
+      "Do testar as composições em desktop, tablet e celular e respeitar movimento reduzido."
+    ],
+    "donts": [
+      "Don't inventar clientes, números de resultados ou depoimentos.",
+      "Don't sugerir que o formulário enviou dados ou que imagens conceituais representam obras executadas.",
+      "Don't carregar analytics, recursos remotos ou integrações para esta demonstração.",
+      "Don't adicionar pin, scroll hijack, autoplay contínuo ou áudio automático à extensão."
+    ],
+    "rules": [
+      {
+        "name": "The Shared Type Rule",
+        "section": "typography",
+        "body": "Preservar as duas famílias entre as três rotas; aumentar a escala e variar composição sem substituir a identidade."
+      },
+      {
+        "name": "The Readable Depth Rule",
+        "section": "elevation",
+        "body": "Planos decorativos nunca substituem os títulos, descrições e controles em HTML."
+      }
+    ]
+  }
+}

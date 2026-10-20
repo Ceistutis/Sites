@@ -6,15 +6,18 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "oxlint",
+    "lint": "oxlint src tests vite.config.ts playwright.config.ts playwright.super.config.ts",
     "preview": "vite preview",
     "test": "playwright test",
+    "test:super": "playwright test -c playwright.super.config.ts",
     "build:pages": "tsc -b && vite build --mode pages --outDir docs && node scripts/finalize-pages.mjs"
   },
   "dependencies": {
     "@fontsource/dm-sans": "^5.3.0",
     "@fontsource/manrope": "^5.3.0",
+    "@gsap/react": "^2.1.2",
     "@tailwindcss/vite": "^4.3.3",
+    "gsap": "^3.15.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-router-dom": "^7.18.4",

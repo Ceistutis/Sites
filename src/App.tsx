@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
 import {
   BrowserRouter,
@@ -9,6 +9,8 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import "./App.css";
+
+const SuperPremiumPage = lazy(() => import("./super-premium/SuperPremiumPage"));
 
 const services = [
   {
@@ -865,19 +867,18 @@ function Home() {
             <h1>
               Uma marca.
               <br />
-              Duas experiências.
+              Três experiências.
             </h1>
             <p>
               O mesmo estúdio de arquitetura.
               <br />
-              Duas maneiras de construir sua presença digital.
+              Três maneiras de construir sua presença digital.
             </p>
           </div>
           <div className="showcase-intro">
             <p>
-              Explore o essencial bem resolvido e uma experiência feita sob
-              medida. Veja como design e interação mudam a forma de apresentar
-              uma marca.
+              Do essencial bem resolvido à direção de arte cinematográfica. Veja
+              como design e interação mudam a forma de apresentar uma marca.
             </p>
             <a className="text-link" href="#comparar">
               Encontre a diferença <Arrow />
@@ -912,10 +913,22 @@ function Home() {
                   "Orçamento em etapas",
                 ],
               },
+              {
+                type: "Super Premium",
+                route: "/super-premium",
+                image: "preview-super-premium",
+                title: "Uma experiência para sentir.",
+                text: "Fotografia monumental, narrativa em movimento e uma galeria espacial. Uma presença que convida a ir além.",
+                items: [
+                  "Parallax cinematográfico",
+                  "Galeria em profundidade",
+                  "Exploração de materiais",
+                ],
+              },
             ].map((v) => (
               <article
                 key={v.type}
-                className={`comparison-option ${v.type === "Premium" ? "premium-option" : ""}`}
+                className={`comparison-option ${v.type === "Premium" ? "premium-option" : ""} ${v.type === "Super Premium" ? "super-option" : ""}`}
               >
                 <Link
                   to={v.route}
@@ -975,11 +988,11 @@ function Home() {
               na prática?
             </h2>
             <p>
-              Qualidade nas duas versões.
+              Qualidade nas três versões.
               <br />A diferença está na profundidade da experiência.
             </p>
           </div>
-          <div className="table-wrap">
+          <div className="table-wrap" role="region" aria-label="Tabela comparativa das três experiências" tabIndex={0}>
             <table>
               <caption className="sr-only">
                 Comparação dos recursos implementados
@@ -989,6 +1002,7 @@ function Home() {
                   <th scope="col">Recurso</th>
                   <th scope="col">Básica</th>
                   <th scope="col">Premium</th>
+                  <th scope="col">Super Premium</th>
                 </tr>
               </thead>
               <tbody>
@@ -997,23 +1011,37 @@ function Home() {
                     "Design",
                     "Limpo e consistente",
                     "Editorial e personalizado",
+                    "Direção artística cinematográfica",
                   ],
-                  ["Conteúdo", "Apresentação direta", "Narrativa e projetos"],
+                  [
+                    "Conteúdo",
+                    "Apresentação direta",
+                    "Narrativa e projetos",
+                    "Sete capítulos visuais",
+                  ],
                   [
                     "Interações",
                     "Navegação e contato",
                     "Filtros, detalhes e etapas",
+                    "Galeria espacial e materiais",
                   ],
-                  ["Animações", "Discretas", "Revelações e microinterações"],
+                  [
+                    "Animações",
+                    "Discretas",
+                    "Revelações e microinterações",
+                    "Parallax e sequências GSAP",
+                  ],
                   [
                     "Responsividade",
                     "Desktop, tablet e celular",
                     "Desktop, tablet e celular",
+                    "Composições adaptadas por tela",
                   ],
                   [
                     "Acessibilidade",
                     "Foco e semântica",
                     "Foco, semântica e diálogos",
+                    "Teclado, toque e movimento reduzido",
                   ],
                 ].map((row) => (
                   <tr key={row[0]}>
@@ -1050,7 +1078,7 @@ function PageBehavior() {
   useEffect(() => {
     window.scrollTo(0, 0);
     const pathname = location.pathname.replace(/\/$/, "");
-    document.title = `${pathname === "/premium" ? "Premium" : pathname === "/basica" ? "Básica" : "Showcase"} — Lume Arquitetura`;
+    document.title = `${pathname === "/super-premium" ? "Super Premium" : pathname === "/premium" ? "Premium" : pathname === "/basica" ? "Básica" : "Showcase"} — Lume Arquitetura`;
   }, [location.pathname]);
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -1085,6 +1113,20 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/basica" element={<Basic />} />
         <Route path="/premium" element={<Premium />} />
+        <Route
+          path="/super-premium"
+          element={
+            <Suspense
+              fallback={
+                <main id="main" className="frame section" role="status">
+                  Abrindo a experiência Lume…
+                </main>
+              }
+            >
+              <SuperPremiumPage />
+            </Suspense>
+          }
+        />
         <Route
           path="*"
           element={

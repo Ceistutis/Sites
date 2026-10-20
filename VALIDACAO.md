@@ -1,5 +1,27 @@
 # Validação — 19/10/2026
 
+## Super Premium V2 — conclusão local
+
+- Build TypeScript/Vite aprovada. Chunk da rota carregado sob demanda: 135,85 kB / 51,42 kB gzip; CSS próprio 17,06 kB / 4,13 kB gzip.
+- Regressão existente: **21 testes aprovados**. Nova suíte: **32 aprovados e 4 pulados intencionalmente**, pois o teste de swipe se aplica somente aos dois celulares.
+- Viewports novos: 1920×1080, 1440×900, 1366×768, 768×1024, 390×844, 375×812. Inspeção por Playwright CLI com screenshots de hero, página completa e seções.
+- Sem violações axe nos cenários auditados, imagens quebradas, overflow horizontal ou erros de console. Navegação, foco, menu/Escape, URL da galeria, dez cliques rápidos, teclado, toque, seleção de materiais e formulário local verificados.
+- Movimento normal e alteração dinâmica para movimento reduzido testados, incluindo saída e retorno à rota. Parallax desativado em telas menores; rolagem nativa preservada.
+- Formulário não faz requisições de escrita nem usa localStorage/sessionStorage. Mensagens identificam claramente a demonstração.
+- Lint sem erros e sem avisos novos; permanece um aviso preexistente `react(set-state-in-effect)` em `src/App.tsx` no Header das versões anteriores.
+- Correções: alinhamento simétrico das laterais do carrossel; texto mínimo de 13 px; ícones SVG; skip link oculto até o foco; tabela comparativa acessível pelo teclado no celular.
+- Revisão final Impeccable: os dois ajustes solicitados (documentação das três versões e ícones SVG) foram conferidos e aprovados, sem regressões observadas nesses ajustes.
+
+### Evidências e limites
+
+Capturas em `artifacts/sp-*.png`, inclusive a página inicial comparativa. Vídeos de navegação com movimento ativo em `artifacts/super-motion/lume-1440.webm` e `lume-375.webm`. Métricas em `artifacts/super-production-metrics.json`, produzidas pela build local em 4173.
+
+Uma execução Chrome sem limitação de CPU/rede observou LCP de 520 ms (1440) e 468 ms (375). Soma de deslocamentos sem entrada recente: 0,0171 e 0,0043. Maior duração de evento observada: 96 ms e 32 ms. Essa soma não implementa a janela de sessão do CLS; Event Timing não é INP de campo. Não são resultados Lighthouse, garantia de Core Web Vitals, teste de dispositivo físico ou medição pública.
+
+O inspetor Taste identificou ausência de overflow e imagens quebradas, mas também flags editoriais. Textos pequenos foram corrigidos. Mantiveram-se numeração funcional do carrossel/processo, separadores de detalhes/etapas e fundo mineral coerente com o briefing. O CTA de um disclosure foi interpretado como eyebrow; não é subtítulo decorativo. A ausência de vídeo final é deliberada: as referências mostram interfaces de terceiros, e a arquitetura fictícia usa fotografia original animada. Não se declara aprovação integral automática do Taste. O detector Impeccable não apontou achados.
+
+Esta etapa é exclusivamente local: sem publicação, commit ou push. Os resultados anteriores abaixo descrevem a entrega básica/premium e permanecem como histórico.
+
 ## Execução
 - Build TypeScript + Vite concluída com sucesso; saída em dist.
 - Servidor de desenvolvimento: http://127.0.0.1:5173.
